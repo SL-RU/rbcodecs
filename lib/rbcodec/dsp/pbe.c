@@ -18,7 +18,7 @@
  * KIND, either express or implied.
  *
  ****************************************************************************/
-//#include "config.h"
+#include "config.h"
 #include "fixedpoint.h"
 #include "fracmul.h"
 //#include "settings.h"

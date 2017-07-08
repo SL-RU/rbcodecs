@@ -26,13 +26,11 @@
 #include "strcasecmp.h"
 #include "strcasestr.h"
 #include "strtok_r.h"
+#include <memory.h>
 //#include "memset16.h"
 
-#if defined(WIN32) || defined(APPLICATION) \
-        || defined(__PCTOOL__)
 #ifndef mempcpy
 #define mempcpy __builtin_mempcpy
-#endif
 #endif
 
 /* copies a buffer of len bytes and null terminates it */

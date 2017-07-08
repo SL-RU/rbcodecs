@@ -29,6 +29,8 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <string.h>
+//#include "core_alloc.h"
+
 
 /* enable single block debugging */
 #define BUFLIB_DEBUG_BLOCK_SINGLE
@@ -55,6 +57,7 @@ struct buflib_context
     union buflib_data *alloc_end;
     bool compact;
 };
+struct buflib_context core_ctx;
 
 /**
  * This declares the minimal overhead that is required per alloc. These

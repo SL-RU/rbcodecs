@@ -1,0 +1,2 @@
+/usr/bin/ar qc librockbox_sys.a  CMakeFiles/rockbox_sys.dir/unicode.c.o CMakeFiles/rockbox_sys.dir/strlcpy.c.o CMakeFiles/rockbox_sys.dir/pathfuncs.c.o CMakeFiles/rockbox_sys.dir/crc32.c.o CMakeFiles/rockbox_sys.dir/buflib.c.o
+/usr/bin/ranlib librockbox_sys.a

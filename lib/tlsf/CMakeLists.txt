@@ -1,3 +1,5 @@
-add_library (tlsf src/tlsf.c)
+SET(tlsf_src ${CMAKE_CURRENT_SOURCE_DIR}/src/tlsf.c PARENT_SCOPE)
 
-target_include_directories (tlsf PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
+set (tlsf_h
+  ${CMAKE_CURRENT_SOURCE_DIR}/src
+  PARENT_SCOPE)

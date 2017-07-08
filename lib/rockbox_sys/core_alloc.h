@@ -6,6 +6,8 @@
 #include "config.h"
 #include "buflib.h"
 
+extern struct buflib_context core_ctx;
+
 /* All functions below are wrappers for functions in buflib.h, except
  * they have a predefined context
  */

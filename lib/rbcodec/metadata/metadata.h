@@ -24,6 +24,7 @@
 
 #include "platform.h"
 #include "config.h"
+#include "strlcpy.h"
 
 /* Audio file types. */
 /* NOTE: The values of the AFMT_* items are used for the %fc tag in the WPS

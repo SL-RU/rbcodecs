@@ -461,45 +461,45 @@ bool get_metadata(struct mp3entry* id3, int fd, const char* trackname)
     return true;
 }
 
-#ifndef __PCTOOL__
-#if CONFIG_CODEC == SWCODEC
-void strip_tags(int handle_id)
-{
-    static const unsigned char tag[] = "TAG";
-    static const unsigned char apetag[] = "APETAGEX";    
-    size_t len, version;
-    void *tail;
+/* #ifndef __PCTOOL__ */
+/* #if CONFIG_CODEC == SWCODEC */
+/* void strip_tags(int handle_id) */
+/* { */
+/*     static const unsigned char tag[] = "TAG"; */
+/*     static const unsigned char apetag[] = "APETAGEX";     */
+/*     size_t len, version; */
+/*     void *tail; */
 
-    if (bufgettail(handle_id, 128, &tail) != 128)
-        return;
+/*     if (bufgettail(handle_id, 128, &tail) != 128) */
+/*         return; */
 
-    if (memcmp(tail, tag, 3) == 0)
-    {
-        /* Skip id3v1 tag */
-        logf("Cutting off ID3v1 tag");
-        bufcuttail(handle_id, 128);
-    }
+/*     if (memcmp(tail, tag, 3) == 0) */
+/*     { */
+/*         /\* Skip id3v1 tag *\/ */
+/*         logf("Cutting off ID3v1 tag"); */
+/*         bufcuttail(handle_id, 128); */
+/*     } */
 
-    /* Get a new tail, as the old one may have been cut */
-    if (bufgettail(handle_id, 32, &tail) != 32)
-        return;
+/*     /\* Get a new tail, as the old one may have been cut *\/ */
+/*     if (bufgettail(handle_id, 32, &tail) != 32) */
+/*         return; */
 
-    /* Check for APE tag (look for the APE tag footer) */
-    if (memcmp(tail, apetag, 8) != 0)
-        return;
+/*     /\* Check for APE tag (look for the APE tag footer) *\/ */
+/*     if (memcmp(tail, apetag, 8) != 0) */
+/*         return; */
 
-    /* Read the version and length from the footer */
-    version = get_long_le(&((unsigned char *)tail)[8]);
-    len = get_long_le(&((unsigned char *)tail)[12]);
-    if (version == 2000)
-        len += 32; /* APEv2 has a 32 byte header */
+/*     /\* Read the version and length from the footer *\/ */
+/*     version = get_long_le(&((unsigned char *)tail)[8]); */
+/*     len = get_long_le(&((unsigned char *)tail)[12]); */
+/*     if (version == 2000) */
+/*         len += 32; /\* APEv2 has a 32 byte header *\/ */
 
-    /* Skip APE tag */
-    logf("Cutting off APE tag (%ldB)", len);
-    bufcuttail(handle_id, len);
-}
-#endif /* CONFIG_CODEC == SWCODEC */
-#endif /* ! __PCTOOL__ */
+/*     /\* Skip APE tag *\/ */
+/*     logf("Cutting off APE tag (%ldB)", len); */
+/*     bufcuttail(handle_id, len); */
+/* } */
+/* #endif /\* CONFIG_CODEC == SWCODEC *\/ */
+/* #endif /\* ! __PCTOOL__ *\/ */
 
 #define MOVE_ENTRY(x) if (x) x += offset;
 

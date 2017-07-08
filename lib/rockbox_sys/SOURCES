@@ -1,6 +1,6 @@
-core_alloc.h
+core_alloc.c
 unicode.c
-structec.h
+structec.c
 strlcpy.c
 pathfuncs.c
 crc32.c

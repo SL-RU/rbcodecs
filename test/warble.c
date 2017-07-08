@@ -796,7 +796,7 @@ static void decode_file(const char *input_fn)
 
     /* Load codec */
     char str[MAX_PATH];
-    snprintf(str, sizeof(str), CODECDIR"/%s.codec", audio_formats[id3.codectype].codec_root_fn);
+    snprintf(str, sizeof(str), "/home/lyra/tmp/rockbox-3.14/build/lib/rbcodec/codecs/%s.codec", audio_formats[id3.codectype].codec_root_fn);
     debugf("Loading %s\n", str);
     void *dlcodec = dlopen(str, RTLD_NOW);
     if (!dlcodec) {
@@ -899,7 +899,7 @@ int main(int argc, char **argv)
             print_help(argv[0]);
             exit(1);
         }
-        core_allocator_init();
+        //core_allocator_init();
         playback_init();
     } else {
         if (argc > 1)

@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lyra/tmp/rockbox-3.14/lib/fixedpoint/fixedpoint.c
+fixedpoint.h
+/home/lyra/tmp/rockbox-3.14/lib/fixedpoint/fixedpoint.h
+stdlib.h
+-
+stdbool.h
+-
+inttypes.h
+-
+
+/home/lyra/tmp/rockbox-3.14/lib/fixedpoint/fixedpoint.h
+
