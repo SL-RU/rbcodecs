@@ -29,12 +29,12 @@ DEPFILE = $(BUILDDIR)/make.dep
 
 all: $(DEPFILE) build
 
+INCLUDES += -I$(ROOTDIR)/test
 INCLUDES += -I$(ROOTDIR)/lib/rockbox_sys	
-INCLUDES += -I$(ROOTDIR)/lib/rbcodec/test
 INCLUDES += -I$(ROOTDIR)/lib/rbcodec
 include $(ROOTDIR)/lib/tlsf/libtlsf.make
 include $(ROOTDIR)/lib/fixedpoint/fixedpoint.make
-include $(ROOTDIR)/lib/rbcodec/test/warble.make
+include $(ROOTDIR)/test/warble.make
 include $(ROOTDIR)/lib/rbcodec/rbcodec.make
 
 OBJ := $(SRC:.c=.o)
@@ -42,8 +42,7 @@ OBJ := $(OBJ:.S=.o)
 OBJ += $(BMP:.bmp=.o)
 OBJ := $(subst $(ROOTDIR),$(BUILDDIR),$(OBJ))
 
-build: $(TOOLS) $(BUILDDIR)/$(BINARY) $(CODECS) $(ROCKS) $(ARCHOSROM) $(RBINFO)
-
+build: $(TOOLS) $(BUILDDIR)/$(BINARY) $(CODECS) $(ROCKS)
 
 $(DEPFILE) dep:
 	$(call PRINTS,Generating dependencies)

@@ -207,4 +207,5 @@ $(CODECDIR)/%.codec: $(CODECDIR)/%.o
 		$(filter %.o, $^) \
 		$(filter %.a, $+) \
 		-lgcc $(CODECLDFLAGS)
-	$(SILENT)$(call objcopy,$(CODECDIR)/$*.elf,$@)
+	@echo $(CODECDIR)/$*.elf,$@
+	@$(call objcopy,$(CODECDIR)/$*.elf,$@)
