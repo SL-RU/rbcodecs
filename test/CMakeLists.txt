@@ -12,14 +12,18 @@ INCLUDE(FindPkgConfig)
 PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2)
 
 include_directories (${CMAKE_CURRENT_SOURCE_DIR}
-  ../lib/rockbox_sys
-  ../lib/rbcodec
-  ../lib/rbcodec/dsp
-  ../lib/rbcodec/metadata
-  ../lib/rbcodec/codecs
-  ../lib/rbcodec/lib
-  ../lib/tlsf/src
-  ../lib/fixedpoint
+#  ../lib/rockbox_sys
+#  ../lib/rbcodec
+#  ../lib/rbcodec/dsp
+#  ../lib/rbcodec/metadata
+#  ../lib/rbcodec/codecs
+#  ../lib/rbcodec/lib
+#  ../lib/tlsf/src
+#  ../lib/fixedpoint
+  ${rockbox_sys_INCLUDE_DIRS}
+  ${rbcodec_INCLUDE_DIRS}
+  ${tlsf_INCLUDE_DIRS}
+  ${fixedpoint_INCLUDE_DIRS}
   ${SDL2_INCLUDE_DIRS}
   )
 
@@ -46,11 +50,12 @@ message(${TARGET})
 
 add_executable(${TARGET}
   warble.c
-  ${lib_src})
+#  ${lib_src}
+  )
 
 TARGET_LINK_LIBRARIES(${TARGET} ${SDL2_LIBRARIES})
-#TARGET_LINK_LIBRARIES(${TARGET} rockbox_sys)
-#TARGET_LINK_LIBRARIES(${TARGET} rbcodec)
-#TARGET_LINK_LIBRARIES(${TARGET} tlsf)
-#TARGET_LINK_LIBRARIES(${TARGET} fixedpoint)
+TARGET_LINK_LIBRARIES(${TARGET} rockbox_sys)
+TARGET_LINK_LIBRARIES(${TARGET} rbcodec)
+TARGET_LINK_LIBRARIES(${TARGET} tlsf)
+TARGET_LINK_LIBRARIES(${TARGET} fixedpoint)
 #TARGET_LINK_LIBRARIES(${TARGET} codecs)

@@ -8,13 +8,16 @@ set (src "")
 FOREACH(f ${s})
   LIST(APPEND src "${CMAKE_CURRENT_SOURCE_DIR}/${f}")
 ENDFOREACH(f)
-set (rockbox_sys_src ${src} PARENT_SCOPE)
-message(${src})
+set (rockbox_sys_src ${src})# PARENT_SCOPE)
+#message(${src})
 
 
 set (rockbox_sys_h PUBLIC
-  ${CMAKE_CURRENT_SOURCE_DIR}
-  PARENT_SCOPE)
+  ${CMAKE_CURRENT_SOURCE_DIR})
+#  PARENT_SCOPE)
 
+add_library(rockbox_sys ${rockbox_sys_src})
+target_include_directories(rockbox_sys PUBLIC ${rockbox_sys_h})
 
-#TARGET_LINK_LIBRARIES(rockbox_sys tlsf)
+TARGET_LINK_LIBRARIES(rockbox_sys tlsf)
+

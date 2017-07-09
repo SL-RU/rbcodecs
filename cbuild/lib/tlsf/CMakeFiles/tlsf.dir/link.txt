@@ -1,2 +1,0 @@
-/usr/bin/ar qc libtlsf.a  CMakeFiles/tlsf.dir/src/tlsf.c.o
-/usr/bin/ranlib libtlsf.a
