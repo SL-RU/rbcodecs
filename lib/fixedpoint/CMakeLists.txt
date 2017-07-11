@@ -7,4 +7,4 @@ set (fixedpoint_src
 set (fixedpoint_h ${CMAKE_CURRENT_SOURCE_DIR})# PARENT_SCOPE)
 
 add_library(fixedpoint ${fixedpoint_src})
-target_include_directories(fixedpoint PUBLIC ${fixedpoint_h})
+target_include_directories(fixedpoint INTERFACE ${fixedpoint_h})

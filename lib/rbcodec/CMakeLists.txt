@@ -13,6 +13,7 @@ set (rbcodec_src ${src})
 
 
 set (rbcodec_h
+  ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}/dsp
   ${CMAKE_CURRENT_SOURCE_DIR}/metadata
   ${CMAKE_CURRENT_SOURCE_DIR}/codecs)
@@ -20,10 +21,15 @@ set (rbcodec_h
 
 
 add_library(rbcodec ${rbcodec_src})
-target_include_directories(rbcodec PUBLIC ${rbcodec_h})
+target_include_directories(rbcodec
+  INTERFACE ${rbcodec_h})
+
+target_include_directories(rbcodec
+  PUBLIC ${rbcodec_h})
+
 
 TARGET_LINK_LIBRARIES(rbcodec rockbox_sys)
 TARGET_LINK_LIBRARIES(rbcodec fixedpoint)
 TARGET_LINK_LIBRARIES(rbcodec tlsf)
 
-#add_subdirectory (codecs)
+add_subdirectory (codecs)

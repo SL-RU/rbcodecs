@@ -6,4 +6,6 @@ set (tlsf_h
 
 message(${tlsf_src})
 add_library(tlsf ${tlsf_src})
-target_include_directories(tlsf PUBLIC ${tlsf_h})
+target_include_directories(tlsf INTERFACE ${tlsf_h})
+
+TARGET_LINK_LIBRARIES(tlsf rockbox_sys)
