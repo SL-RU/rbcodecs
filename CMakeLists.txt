@@ -20,6 +20,7 @@ set(CMAKE_C_FLAGS "${PRJ_CFLAGS} ${OPT} -Wall -fdata-sections -ffunction-section
 set(LINKER_FLAGS "${USER_LINKER_FLAGS} ${LINKER_FLAGS} -ldl -lm -lc")
 SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${LINKER_FLAGS}")
 
+set(IS_ARM NO)
 
 add_definitions(-DTARGET_ID=73
   -DROCKBOX

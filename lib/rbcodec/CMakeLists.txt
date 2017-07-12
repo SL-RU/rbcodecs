@@ -1,7 +1,12 @@
-#project (RBcodec)
+message("rbcodec library")
+
 file(STRINGS SOURCES s)
 
-message("rbcodec library")
+if(${IS_ARM})
+  file(STRINGS SOURCES_arm s_a)
+  set(s ${s} ${s_a})
+endif(${IS_ARM})
+
 #message(${src_fls})
 
 set (src "")
